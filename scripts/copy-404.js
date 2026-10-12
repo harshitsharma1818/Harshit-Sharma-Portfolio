@@ -6,12 +6,34 @@ const indexPath = path.join(distDir, 'index.html');
 const notFoundPath = path.join(distDir, '404.html');
 const noJekyllPath = path.join(distDir, '.nojekyll');
 
-if (fs.existsSync(indexPath)) {
-  fs.copyFileSync(indexPath, notFoundPath);
-  console.log('[build] Generated dist/404.html for GitHub Pages SPA routing.');
-} else {
-  console.warn('[build] Warning: dist/index.html not found, skipping 404.html generation.');
-}
+const spa404Html = `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Harshit Sharma — Personal Portfolio</title>
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // MIT License
+      // https://github.com/rafgraph/spa-github-pages
+      var pathSegmentsToKeep = 1;
+
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
+`;
+
+fs.writeFileSync(notFoundPath, spa404Html);
+console.log('[build] Generated dist/404.html for GitHub Pages SPA routing.');
 
 if (!fs.existsSync(noJekyllPath)) {
   fs.writeFileSync(noJekyllPath, '');
