@@ -6,6 +6,9 @@ const indexPath = path.join(distDir, 'index.html');
 const notFoundPath = path.join(distDir, '404.html');
 const noJekyllPath = path.join(distDir, '.nojekyll');
 
+const isGitHubPages = process.env.GITHUB_PAGES === 'true' || process.env.GITHUB_ACTIONS === 'true';
+const pathSegmentsToKeep = isGitHubPages ? 1 : 0;
+
 const spa404Html = `<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,7 +18,7 @@ const spa404Html = `<!DOCTYPE html>
       // Single Page Apps for GitHub Pages
       // MIT License
       // https://github.com/rafgraph/spa-github-pages
-      var pathSegmentsToKeep = 1;
+      var pathSegmentsToKeep = ${pathSegmentsToKeep};
 
       var l = window.location;
       l.replace(
