@@ -99,7 +99,7 @@ export const HomePage: React.FC = () => {
             HERO BUTTON GROUP
             Compact, professionally sized & centered buttons
            ======================================================== */}
-        <div className="relative z-20 w-full flex flex-row flex-wrap items-center justify-center gap-3.5 sm:gap-5 px-4 pb-8 sm:pb-10 pt-2">
+        <div className="relative z-20 w-full flex flex-row flex-wrap items-center justify-center gap-3.5 sm:gap-5 px-4 pb-24 sm:pb-10 pt-2">
           {/* PRIMARY BUTTON: View My Work */}
           <Link
             to="/projects"

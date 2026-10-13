@@ -89,3 +89,69 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* ==========================================================================
+   Botpress NOVA AI — Cosmic Theme & Floating Widget Enhancements
+   ========================================================================== */
+
+/* Floating Action Button (FAB) launcher */
+.bpFabWrapper {
+  position: fixed !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  z-index: 9998 !important;
+}
+
+.bpFab {
+  background-color: #030406 !important;
+  border: 1.5px solid rgba(56, 189, 248, 0.45) !important;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.25), 0 0 35px rgba(232, 201, 138, 0.15), 0 8px 30px rgba(0, 0, 0, 0.7) !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease !important;
+}
+
+.bpFab:hover {
+  transform: scale(1.06) !important;
+  border-color: rgba(232, 201, 138, 0.75) !important;
+  box-shadow: 0 0 28px rgba(56, 189, 248, 0.45), 0 0 45px rgba(232, 201, 138, 0.3), 0 12px 36px rgba(0, 0, 0, 0.85) !important;
+}
+
+/* Unread message badge */
+.bpUnreadMessage {
+  background: linear-gradient(135deg, #38BDF8, #E8C98A) !important;
+  color: #030406 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.6) !important;
+  border: 1px solid rgba(3, 4, 6, 0.8) !important;
+}
+
+/* Proactive greeting preview bubble */
+.bpMessagePreview {
+  background-color: rgba(8, 10, 15, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(56, 189, 248, 0.3) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(56, 189, 248, 0.15) !important;
+  color: #EDE8DF !important;
+}
+
+/* Main webchat modal border & shadow */
+.bpWebchat {
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 45px rgba(56, 189, 248, 0.12) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+}
+
+/* Mobile responsive alignment */
+@media (max-width: 640px) {
+  .bpFabWrapper {
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px)) !important;
+    right: 16px !important;
+  }
+  .bpFab {
+    height: 56px !important;
+    width: 56px !important;
+  }
+}
+
